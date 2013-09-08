@@ -16,7 +16,7 @@ public class QuickFindUF {
         // Change all entries whose id is id[p] to id[q]
         int pid = id[p];
         int qid = id[q];
-        for (int i = 0; i < N; i++)
+        for (int i = 0; i < id.length; i++)
             if (id[i] == pid)
                 id[i] = qid;
 	}
