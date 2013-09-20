@@ -1,12 +1,12 @@
 class WeightedQuickUnion
+  attr_reader :id, :sz
+
   def initialize(num)
-    @id = Array.new(num)
+    @id = Array.new(num) { |index| index}
     @sz = Array.new(num, 1)
-    @id.each_with_index do |i, index|
-      @id[index] = index
-    end
   end
-  
+
+  private  
   def rootOf i
     while i != id[i] do
       id[i] = id[id[i]]
@@ -15,13 +15,15 @@ class WeightedQuickUnion
     i
   end
 
+  public
   def connected?(i, j)
-    rootOf i == rootOf j
+    rootOf(i) == rootOf(j)
   end
 
   def union(i, j)
     iRoot = rootOf i
     jRoot = rootOf j
+     # i becomes a child of j when sizes equal
     if @sz[iRoot] <= @sz[jRoot]
       @id[iRoot] = jRoot
       @sz[jRoot] += @sz[iRoot]
