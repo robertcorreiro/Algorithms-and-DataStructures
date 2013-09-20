@@ -1,4 +1,4 @@
-public class WeightedQuickUnion {
+public class WeightedQuickUnion implements UnionFind {
     private int[] id, sz;
     
     public WeightedQuickUnion(int n) {

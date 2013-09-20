@@ -1,7 +1,7 @@
-public class QuickUnionUF {
+public class QuickUnion implements UnionFind {
     private int[] id;
 
-    public QuickUnionUF(int n) {
+    public QuickUnion(int n) {
         id = new int[n];
         for (int i = 0; i < n; i++)
             id[i] = i;
@@ -14,12 +14,12 @@ public class QuickUnionUF {
         return i;
     }
 
-    public boolean isConnected(int p, int q) {
-        return rootOf(p) == rootOf(q);
+    public boolean isConnected(int i, int j) {
+        return rootOf(i) == rootOf(j);
     }
 
-    public void union(int p, int q) {
-        id[rootOf(p)] = rootOf(q);
+    public void union(int i, int j) {
+        id[rootOf(i)] = rootOf(j);
     }
 
 }
