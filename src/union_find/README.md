@@ -25,11 +25,11 @@ The algorithms will perform two main operations:
 ### Implementations:
 
   * Java
-   * [Quick-Find](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/QuickFindUF.java)
-   * Quick-Union
-   * Weighted Quick-Union
-   * Weighted Quick-Union with Path Compression
-
+   * [Quick-Find](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/QuickFind.java)
+   * [Quick-Union](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/QuickUnion.java)
+   * [Weighted Quick-Union with Path Compression](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/WeightedQuickUnion.java)
+  * Ruby
+   * [Weighted Quick-Union with Path Compression](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/WeightedQuickUnion.rb)
 ===========================
 
 ### Other Union-find applications:
