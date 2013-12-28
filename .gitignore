@@ -4,3 +4,4 @@ classes/
 *.class
 backup/
 *.jar
+*.zip
