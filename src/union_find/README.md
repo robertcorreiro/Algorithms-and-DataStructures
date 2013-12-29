@@ -23,13 +23,13 @@ The algorithm will perform two main operations:
 
 ### Implementation:
 
-  * [Weighted Quick-Union with Path Compression](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/WeightedQuickUnionUF.java)
+  * [WeightedQuickUnionUF.java](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/WeightedQuickUnionUF.java)
   
 ### Applications:
   Scientists have defined an abstract process known as *percolation* to model situations such as: water draining through a porous surface or oil gushing through to the surface from below. 
 
-  * [Percolation](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/Percolation.java) - API to model a percolation system.
-  * [PercolationStats](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/PercolationStats.java) - performs a Monte Carlo simulation to estimate the percolation threshold.
+  * [Percolation.java](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/Percolation.java) - API to model a percolation system.
+  * [PercolationStats.java](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/PercolationStats.java) - performs a Monte Carlo simulation to estimate the percolation threshold.
 ===========================
 
 ### Other Union-find applications:
