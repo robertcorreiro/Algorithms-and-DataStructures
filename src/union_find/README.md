@@ -15,21 +15,21 @@ Is there a path between...
 
 The **union-find** data type models the *partitioning* of a set of elements, in order to keep track of *connected components* in an *undirected graph*.
 
-The algorithms will perform two main operations:
+The algorithm will perform two main operations:
 
-  * **Find** - check if two elements are in the same subset. (Are they connected?)
-  * **Union** - merge two subsets into one.
+  * **Union** - merge two components, or subsets.
+  * **Find** - check if two elements are in the same component or subset. (Are they connected?)
+  
 
-===========================
+### Implementation:
 
-### Implementations:
+  * [Weighted Quick-Union with Path Compression](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/WeightedQuickUnionUF.java)
+  
+### Applications:
+  Scientists have defined an abstract process known as *percolation* to model situations such as: water draining through a porous surface or oil gushing through to the surface from below. 
 
-  * Java
-   * [Quick-Find](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/QuickFind.java)
-   * [Quick-Union](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/QuickUnion.java)
-   * [Weighted Quick-Union with Path Compression](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/WeightedQuickUnion.java)
-  * Ruby
-   * [Weighted Quick-Union with Path Compression](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/WeightedQuickUnion.rb)
+  * [Percolation](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/Percolation.java) - API to model a percolation system.
+  * [PercolationStats](https://github.com/robertcorreiro/Algorithms-and-DataStructures/blob/master/src/union_find/PercolationStats.java) - performs a Monte Carlo simulation to estimate the percolation threshold.
 ===========================
 
 ### Other Union-find applications:
