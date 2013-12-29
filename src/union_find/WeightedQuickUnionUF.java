@@ -48,16 +48,16 @@ public class WeightedQuickUnionUF {
         uf.union(7,9);
         uf.union(8,9);
 
-        System.out.println("Should be TRUE: " + uf.isConnected(1,4));
-        System.out.println("Should be TRUE: " + uf.isConnected(3,4));
-        System.out.println("Should be TRUE: " + uf.isConnected(5,6));
-        System.out.println("Should be TRUE: " + uf.isConnected(7,9));
-        System.out.println("Should be TRUE: " + uf.isConnected(8,7));
+        System.out.println("Should be TRUE: " + uf.connected(1,4));
+        System.out.println("Should be TRUE: " + uf.connected(3,4));
+        System.out.println("Should be TRUE: " + uf.connected(5,6));
+        System.out.println("Should be TRUE: " + uf.connected(7,9));
+        System.out.println("Should be TRUE: " + uf.connected(8,7));
 
-        System.out.println("Should be FALSE: " + uf.isConnected(1,5));
-        System.out.println("Should be FALSE: " + uf.isConnected(1,8));
-        System.out.println("Should be FALSE: " + uf.isConnected(6,2));
-        System.out.println("Should be FALSE: " + uf.isConnected(6,9));
-        System.out.println("Should be FALSE: " + uf.isConnected(9,3));
+        System.out.println("Should be FALSE: " + uf.connected(1,5));
+        System.out.println("Should be FALSE: " + uf.connected(1,8));
+        System.out.println("Should be FALSE: " + uf.connected(6,2));
+        System.out.println("Should be FALSE: " + uf.connected(6,9));
+        System.out.println("Should be FALSE: " + uf.connected(9,3));
     }
 }

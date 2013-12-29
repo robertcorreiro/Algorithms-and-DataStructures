@@ -1,11 +1,11 @@
 public class PercolationStats {
-    double[] results;
-    int numExp;
+    private double[] results;
+    private int numExp;
 
     // Performs t independent experiments on an n-by-n grid
     public PercolationStats(int n, int t) {
         Percolation perc;
-        int open;
+        int row, col, open;
         numExp = t;
         results = new double[numExp];
 
@@ -13,18 +13,34 @@ public class PercolationStats {
             perc = new Percolation(n);
             open = 0;
 
+
             while(!perc.percolates()) {
-                int j = StdRandom.uniform(n*n + 1);
-                int row = j / n;
-                int col = j % n;
-                perc.open(row,col);
+                int j = StdRandom.uniform(n*n) + 1;
+                
+                if (j % n == 0) {
+                    row = j / n;
+                    col = n;
+                } else {
+                    row = (j / n) + 1;    
+                    col = j % n;
+                }            
+                
+                try {
+                    perc.open(row,col);    
+                } catch (IndexOutOfBoundsException e) {
+
+                }
             }
 
             for(int k = 1; k < n*n+1; k++) {
-                int row = k / n;
-                int col = k % n;
-                if (perc.isOpen(row,col)) {
-                    open++;
+                row = k / n;
+                col = k % n;
+                try {
+                    if (perc.isOpen(row,col)) {
+                        open++;
+                    }
+                } catch (IndexOutOfBoundsException e) {
+                    
                 }
             }
             //System.out.println("open = " + open + "\n(n*n) = " + (n*n));

@@ -1,10 +1,10 @@
 public class Percolation {
-    int TOP;  // virtual top site
-    int BOTTOM;  // virtual bottom site
+    private int TOP;  // virtual top site
+    private int BOTTOM;  // virtual bottom site
 
-    boolean[] openSites;
-    WeightedQuickUnionUF uf;
-    int n;
+    private boolean[] openSites;
+    private WeightedQuickUnionUF uf;
+    private int n;
 
     // Creates n-by-n grid, with all sites blocked
     public Percolation(int n) {
@@ -25,26 +25,30 @@ public class Percolation {
     }
 
     private int indexOf(int i, int j) {
-        if (i == 0) {
-            return j;
-        }
+        // if (i == 0) {
+        //     return j;
+        // }
         return (i-1)*n + j;
     }
 
     private boolean inRange(int i, int j) {
-        return i >= 0 && j >= 0 && i <= n && j <= n;
+        return i > 0 && j > 0 && i <= n && j <= n;
     }
 
     // Opens site at row i, col j if not already open
-    public void open(int i, int j) {
-        if (isOpen(i,j)) {
+    public void open(int i, int j) throws IndexOutOfBoundsException {
+        if (!inRange(i, j)) {
+            throw new IndexOutOfBoundsException();
+        }
+        
+        if (isOpen(i,j)) {  // already open
             return;
         }
 
         openSites[indexOf(i,j)] = true;
 
         // Check if newly opened site is in first or last row
-        if (i == 0) {
+        if (i == 1) {
             uf.union(TOP, indexOf(i,j));
         } 
         if (i == n) {
@@ -62,11 +66,19 @@ public class Percolation {
         }
     }
 
-    public boolean isOpen(int i, int j) {
+    public boolean isOpen(int i, int j) throws IndexOutOfBoundsException {
+        if (!inRange(i, j)) {
+            throw new IndexOutOfBoundsException();
+        }
+
         return openSites[indexOf(i,j)];
     }
 
-    public boolean isFull(int i, int j) {
+    public boolean isFull(int i, int j) throws IndexOutOfBoundsException {
+        if (!inRange(i, j)) {
+            throw new IndexOutOfBoundsException();
+        }
+
         return uf.connected(indexOf(i,j), TOP);
     }
 
@@ -79,11 +91,26 @@ public class Percolation {
     public static void main(String[] args) {
         int n = 20;
         Percolation p = new Percolation(n);
-        while(!p.percolates()) {
-            int j = StdRandom.uniform(n*n + 1);
-            int row = j / n;
-            int col = j % n;
-            p.open(row,col);
+
+        int row;
+        int col;
+        while (!p.percolates()) {
+            int j = StdRandom.uniform(n*n) + 1;
+            
+            if (j % n == 0) {
+                row = j / n;
+                col = n;
+            } else {
+                row = (j / n) + 1;    
+                col = j % n;
+            }
+
+            try {
+                p.open(row,col);    
+            } catch (IndexOutOfBoundsException e) {
+
+            }
+            
             System.out.println("Opened: " + row + ", " + col);
         }
         System.out.println("PERCOLATES!");
